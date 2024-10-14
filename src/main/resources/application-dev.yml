@@ -1,0 +1,7 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+
+  mail:
+    username: 72e8b67a765e3ed74c738bfae8b8bab7
+    password: c8acc78baf9c704cc39b049f8df70999
