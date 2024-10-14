@@ -11,7 +11,6 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 @AllArgsConstructor
 @Configuration
 public class MailSenderConfiguration {
-
     private final Environment env;
 
     @Bean

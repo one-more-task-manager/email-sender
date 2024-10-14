@@ -15,6 +15,6 @@ public class SignUpEventConsumer {
     @KafkaListener(topics = "sign-up", groupId = "email-service-group")
     public void consumeSignUpEvent(String message) throws JsonProcessingException {
         SignUpEvent event = this.mapper.readValue(message, SignUpEvent.class);
-        this.emailService.sendWelcomeEmail(event);
+        this.emailService.sendEmail(new EmailMessageDto(event.getEmail(), event.getTitle(), event.getBody()));
     }
 }

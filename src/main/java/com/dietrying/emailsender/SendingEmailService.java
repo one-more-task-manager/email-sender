@@ -8,15 +8,14 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 @Service
 public class SendingEmailService {
-
     private final JavaMailSender mailSender;
 
-    public void sendWelcomeEmail(SignUpEvent signupEvent) {
+    public void sendEmail(EmailMessageDto emailMessageDto) {
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setTo("danyatheworst@gmail.com");
+        message.setTo(emailMessageDto.getEmail());
         message.setFrom("danyatheworst@gmail.com");
-        message.setSubject("Welcome to Our Platform");
-        message.setText("Hello " + signupEvent.getUsername() + ",\n\nThank you for signing up!");
+        message.setSubject(emailMessageDto.getTitle());
+        message.setText("Hello " + emailMessageDto.getEmail() + ",\n\nThank you for signing up!");
 
         this.mailSender.send(message);
     }

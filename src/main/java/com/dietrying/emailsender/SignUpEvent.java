@@ -12,5 +12,6 @@ import lombok.Setter;
 public class SignUpEvent {
     private String userId;
     private String email;
-    private String username;
+    private String title;
+    private String body;
 }
