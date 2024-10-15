@@ -9,8 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class SignUpEvent {
-    private String userId;
+public class Message {
     private String email;
     private String title;
     private String body;

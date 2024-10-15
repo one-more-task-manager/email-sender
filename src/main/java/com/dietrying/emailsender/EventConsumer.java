@@ -8,13 +8,12 @@ import org.springframework.stereotype.Service;
 
 @AllArgsConstructor
 @Service
-public class SignUpEventConsumer {
+public class EventConsumer {
     private final SendingEmailService emailService;
     private final ObjectMapper mapper;
 
-    @KafkaListener(topics = "sign-up", groupId = "email-service-group")
-    public void consumeSignUpEvent(String message) throws JsonProcessingException {
-        SignUpEvent event = this.mapper.readValue(message, SignUpEvent.class);
-        this.emailService.sendEmail(new EmailMessageDto(event.getEmail(), event.getTitle(), event.getBody()));
+    @KafkaListener(topics = "EMAIL_SENDING_TASKS", groupId = "email-service-group")
+    public void consume(String message) throws JsonProcessingException {
+        this.emailService.sendEmail(this.mapper.readValue(message, Message.class));
     }
 }

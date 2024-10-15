@@ -10,13 +10,13 @@ import org.springframework.stereotype.Service;
 public class SendingEmailService {
     private final JavaMailSender mailSender;
 
-    public void sendEmail(EmailMessageDto emailMessageDto) {
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setTo(emailMessageDto.getEmail());
-        message.setFrom("danyatheworst@gmail.com");
-        message.setSubject(emailMessageDto.getTitle());
-        message.setText("Hello " + emailMessageDto.getEmail() + ",\n\nThank you for signing up!");
+    public void sendEmail(Message message) {
+        SimpleMailMessage mailMessage = new SimpleMailMessage();
+        mailMessage.setTo(message.getEmail());
+        mailMessage.setFrom("danyatheworst@gmail.com");
+        mailMessage.setSubject(message.getTitle());
+        mailMessage.setText(message.getBody());
 
-        this.mailSender.send(message);
+        this.mailSender.send(mailMessage);
     }
 }
