@@ -2,9 +2,6 @@ spring:
   profiles:
     default: dev
 
-  kafka:
-    bootstrap-servers: localhost:9092
-
   mail:
     host: in-v3.mailjet.com
     port: 587
