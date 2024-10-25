@@ -1,6 +1,6 @@
 spring:
   kafka:
-    bootstrap-servers: ${KAFKA_HOST}:${KAFKA_PORT}
+    bootstrap-servers: kafka:9092
 
   mail:
     username: ${MAIL_USERNAME}
